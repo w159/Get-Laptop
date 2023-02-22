@@ -10,7 +10,7 @@ Dependent on WMI property for system enclosure being set to a chasis type that's
 Function Get-Laptop
 {
  Param(
- [string]$computer = “localhost”
+ [string]$computer = 'localhost'
  )
  $isLaptop = $false
  if(Get-WmiObject -Class win32_systemenclosure -ComputerName $computer |
