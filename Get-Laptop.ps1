@@ -1,4 +1,13 @@
-﻿Function Get-Laptop
+<#
+.DESCRIPTION
+Simple function that returns true if device is a laptop
+
+Dependent on WMI property for system enclosure being set to a chasis type that's a laptop
+
+#>
+
+
+Function Get-Laptop
 {
  Param(
  [string]$computer = “localhost”
@@ -11,9 +20,4 @@
  if(Get-WmiObject -Class win32_battery -ComputerName $computer)
    { $isLaptop = $true }
  $isLaptop
-} # end function Get-Laptop
-
-# *** entry point to script ***
-
-If(get-Laptop) { “it’s a laptop” }
-else { “it’s not a laptop”}
+}
